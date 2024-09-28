@@ -23,7 +23,7 @@ export class UsersService {
     return user.save();
   }
 
-  async findOne(email: string): Promise<User | undefined> {
+  async findOne(email: string): Promise<any> {
     return this.userModel.findOne({ email }).lean().exec();
   }
 
@@ -43,5 +43,9 @@ export class UsersService {
     await this.userModel.findByIdAndUpdate(userId, {
       refreshToken: null,
     });
+  }
+
+  async countUsers(): Promise<number> {
+    return this.userModel.countDocuments().exec();
   }
 }
