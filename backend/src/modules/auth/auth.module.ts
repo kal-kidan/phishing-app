@@ -7,11 +7,13 @@ import { LocalStrategy } from './strategies/local.strategy';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { AuthController } from './auth.controller';
 import * as dotenv from 'dotenv';
+import { EmployeeModule } from '../employee/employee.module';
 dotenv.config();
 @Module({
   imports: [
     UsersModule,
-    PassportModule,
+    EmployeeModule,
+    PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.register({
       secret: process.env.JWT_SECRET,
       signOptions: { expiresIn: '60m' },
