@@ -28,12 +28,6 @@ export default function Register() {
   }
 
   const handleSubmit = (e: FormEvent) => {
-    console.log({
-      name,
-      email,
-      password
-    })
-
     e.preventDefault()
     setIsLoading(true)
     api
@@ -51,8 +45,6 @@ export default function Register() {
         navigate('/')
       })
       .catch((err) => {
-        console.log(err)
-
         const globalMessage = err.response?.data?.message
 
         const tempErrors = {}
@@ -60,7 +52,7 @@ export default function Register() {
         if (globalMessage) {
           const errorMessages = globalMessage.split(', ')
 
-          errorMessages.forEach((error) => {
+          errorMessages.forEach((error: any) => {
             const match = error.match(/"([^"]+)" is (.*)/)
             if (match) {
               const fieldName = match[1]
@@ -127,7 +119,7 @@ export default function Register() {
             <div className="relative">
               <Input
                 id="password"
-                type="password"
+                type={passwordVisible ? 'text' : 'password'}
                 value={password}
                 placeholder="Enter Password"
                 onChange={(e) => {

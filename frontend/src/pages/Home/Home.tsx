@@ -1,3 +1,5 @@
+import { InvitationForm } from '@/components/InvitationForm'
+import { StatusTable } from '@/components/StatusTable'
 import { useSession } from '@/hooks'
 import { api } from '@/services'
 import { validateUserPermissions } from '@/utils'
@@ -20,7 +22,20 @@ export interface Attempt {
   _id: string
   createdAt: string
   emailContent: string
-  employeeId: string
+  employeeId: {
+    department: string
+    jobTitle: string
+    phoneNumber: string
+    userId: {
+      email: string
+      name: string
+      password: string
+      refreshToken: string
+      roles: string[]
+      _v: number
+      _id: string
+    }
+  }
   status: string
   uniqueLink: string
   __v: number
@@ -70,7 +85,8 @@ function Home() {
         </div>
       ) : (
         <div className="flex flex-col items-center">
-            Wellcome Home
+          <InvitationForm employees={employees} getAttempts={getAttempts} />
+          {attempts && <StatusTable attempts={attempts} />}
         </div>
       )}
     </div>
