@@ -43,7 +43,7 @@ cp .env.example .env
 Open the .env file and update the following environment variables:
 ```bash
 EMAIL_USER: enter your email address
-EMAIL_PASS: generate an app password from your google account [here](https://myaccount.google.com/apppasswords)
+EMAIL_PASS: generate an app password from your google account https://myaccount.google.com/apppasswords
 ```
 
 ### 4. Running the Application 
