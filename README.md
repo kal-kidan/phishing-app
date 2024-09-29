@@ -5,7 +5,8 @@ This project consists of a React frontend and a NestJS backend.
 ## Prerequisites
 
 - Node.js (v14 or higher)
-- NPM 
+- NPM
+- Nest CLI
 
 ## Getting Started
 
@@ -14,8 +15,8 @@ Follow these steps to get the project up and running locally.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-repository/project-name.git
-cd project-name
+git clone https://github.com/kal-kidan/phishing-app
+cd phishing-app
 ```
 #### 2. Install Dependencies
 Navigate to both the React and NestJS directories and install the necessary packages.
